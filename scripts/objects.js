@@ -1,8 +1,9 @@
-//первая задача
-//for (let symvol="#";symvol.length < 8;symvol = symvol + "#") {
-//    console.log(symvol);
+/*первая задача
+for (let symvol="#";symvol.length < 8;symvol = symvol + "#") {
+    console.log(symvol);
 
-//}
+}
+*/
 
 for (let chet = 1; chet <= 100; chet += 1) {
     if (chet % 3 == 0) {
