@@ -1,5 +1,8 @@
-.main h1 {
-  font-size: 2rem;
-  color: red;
+.navbar {
+  background: #f97300;
+}
+
+.container {
+  background: blue;
 }
 /*# sourceMappingURL=newstyle.css.map */
