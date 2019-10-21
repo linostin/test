@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+for (let symvol="#";symvol.length < 8;symvol = symvol + "#") {
+    console.log(symvol);
+}
+=======
 /*первая задача
 for (let symvol="#";symvol.length < 8;symvol = symvol + "#") {
     console.log(symvol);
@@ -34,4 +39,5 @@ function addEntry(events, squirrel) {
     journal.push({events, squirrel});
 }
 addEntry(["работал", "трогал дерево", "ел лазанью"], false);
+>>>>>>> 948b00833bf39a7bd5cfe8e1af304f7a34c3fb6d
 
