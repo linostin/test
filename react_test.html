@@ -11,10 +11,60 @@
   </head>
   <body>
     <div id="root"></div>
+    <div id="root2"></div>
+
     <script type="text/babel">
-      const name = "Иван Царевич";
-      const element = <h1>Здравствуйте, {name}</h1>;
+      /*
+      function formatName(user) {
+        return user.firstName + " " + user.lastName;
+      }
+
+      const user = {
+        firstName: "Мария",
+        lastName: "Морева"
+      };
+
+      const element = <h1>Здравствуйте, {formatName(user)}!</h1>;
       ReactDOM.render(element, document.getElementById("root"));
+
+      // это одинаковые компоненты с точки зрения написания, отличия в стиле
+
+      //компонент как функция
+      function Welcome(props) {
+        return <h1>Привет, {props.name}</h1>;
+      }
+
+      //компонент как класс
+      class Welcome extends React.Component {
+        render() {
+          return <h1>Привет, {this.props.name}</h1>;
+        }
+      }
+*/
+      //пример рендера компонента
+      function WelcomeNameHello(props) {
+        return <h1>Привет, {props.name}</h1>;
+      }
+
+      const element = <WelcomeNameHello name="Алиса" />;
+
+      ReactDOM.render(element, document.getElementById("root"));
+
+      function NewName(props) {
+        return <h1>Привет, {props.name}</h1>;
+      }
+
+      function App() {
+        return (
+          <div>
+            <NewName name="Алиса" />
+            <NewName name="Сергей" />
+            <NewName name="Василий" />
+          </div>
+        );
+      }
+
+      ReactDOM.render(<App />, document.getElementById("root2"));
     </script>
 
     <!--
