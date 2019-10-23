@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="root2"></div>
+    <div id="root3"></div>
+
+    <script type="text/babel">
+      const numbers = [1, 2, 3, 4, 5];
+      //стрелочная функция
+      //const listItems = numbers.map((numbers) => <li>{numbers}</li>);
+      //просто функция
+      const listItems = numbers.map(function(numbers) {
+        return <li>{numbers}</li>;
+      });
+
+      //ReactDOM.render(<ul>{listItems}</ul>, document.getElementById("root"));
+
+      //теперь внутри компонента
+      function NumberList(props) {
+        const numbers2 = props.numbers2;
+        const listItems = numbers2.map(number => <li>{number}</li>);
+        //разобраться с ключами
+        return <ul>{listItems}</ul>;
+      }
+
+      const numbers2 = [1, 2, 3, 4, 5];
+      ReactDOM.render(
+        <NumberList numbers2={numbers2} />,
+        document.getElementById("root2")
+      );
+    </script>
+  </body>
+</html>
