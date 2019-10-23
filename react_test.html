@@ -13,6 +13,7 @@
     <div id="root"></div>
     <div id="root2"></div>
     <div id="root3"></div>
+    <div id="user"></div>
 
     <script type="text/babel">
       /*
@@ -93,11 +94,28 @@
 
       // преобразуем функциональный компонент в классовый
       class Clock extends React.Component {
+        //подробнее изучить констуктор классов и сами классы в js
         constructor(props) {
           super(props);
           this.state = { date: new Date() };
         }
+        //таймеры монтирования и размонтирования компонента
+        //методы жизненного цикла lifecycle methods
+        componentDidMount() {
+          this.timerID = setInterval(() => this.tick(), 1000);
+          //изучить стрелочную функцию
+        }
 
+        componentWillUnmount() {
+          clearInterval(this.timerID);
+        }
+
+        tick() {
+          this.setState({
+            date: new Date()
+          });
+        }
+        //подробнее посмотреть обработку событий
         render() {
           return (
             <div>
@@ -108,6 +126,48 @@
         }
       }
       ReactDOM.render(<Clock />, document.getElementById("root3"));
+
+      //if else
+
+      function UserGreeting(props) {
+        return <h1>Hello User here!</h1>;
+      }
+
+      function GuestGreeting(props) {
+        return <h1>Hey Guest! Do you want to register?</h1>;
+      }
+
+      function Greeting(props) {
+        const isLoggedIn = props.isLoggedIn;
+        if (isLoggedIn) {
+          return <UserGreeting />;
+        }
+        return <GuestGreeting />;
+      }
+      ReactDOM.render(
+        <Greeting isLoggedIn={false} />,
+        document.getElementById("user")
+      );
+
+      //login and logout
+
+      function LoginButton(props) {
+        return (
+          <button onClick={props.onClick}
+          Войти
+          </button>
+        )
+
+      function  LogoutButton(props) {
+        return (
+          <button onClick={props.onClick}
+          Выйти
+          </button>
+        )
+      }
+      }
+
+      
     </script>
   </body>
 </html>
