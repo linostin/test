@@ -12,29 +12,29 @@
 // }
 
 
-let request = new XMLHttpRequest();
+// let request = new XMLHttpRequest();
 
-request.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    console.log(this.readyState);
-    console.log(this.status);
-    // console.log(this.responseText)
-    console.log("SiteWorks");
-  } else {
-    console.log("Site not Works");
-  }
-};
+// request.onreadystatechange = function() {
+//   if (this.readyState == 4 && this.status == 200) {
+//     console.log(this.readyState);
+//     console.log(this.status);
+//     // console.log(this.responseText)
+//     console.log("SiteWorks");
+//   } else {
+//     console.log("Site not Works");
+//   }
+// };
 
-request.open("GET", "https://developer.mozilla.org/", true);
-request.send();
+// request.open("GET", "https://developer.mozilla.org/", true);
+// request.send();
 
-fetch("https://developer.mozilla.org/").then(function(response) {
-    return response.json();
-  }).then(function(data) {
-    console.log(data);
-  }).catch(function() {
-    console.log("Not works");
-  });
+// fetch("https://developer.mozilla.org/").then(function(response) {
+//     return response.json();
+//   }).then(function(data) {
+//     console.log(data);
+//   }).catch(function() {
+//     console.log("Not works");
+//   });
 
 // http://ip-api.com/json
 // fetch('https://vc.ru/', {mode: "no-cors"})
@@ -43,10 +43,43 @@ fetch("https://developer.mozilla.org/").then(function(response) {
 
 
 //  let url = "https://jsonplaceholder.typicode.com/";  
-async function fetchAsync (url) {
-    let response = await fetch(url);
-    console.log(response)
-    let data = await response.json();
-    console.log(data)
-  }
-  fetchAsync("https://vc.ru/")
+// async function fetchAsync (url) {
+//     let response = await fetch(url);
+//     console.log(response)
+//     response.headers.get('content-type');
+
+//     let data = await response.json();
+//     console.log(data)
+//   }
+//   fetchAsync("https://vc.ru/")
+
+
+//   async function fetchAsync (url) {
+//       let response = await fetch(url);
+//       alert(response.headers.get('Content-Type'));
+//     //   response.headers.get('content-type');
+  
+//     //   let data = await response.json();
+//     //   console.log(data)
+//     }
+//     fetchAsync("https://vc.ru/")
+
+//     let response = await fetch(url, options); // завершается с заголовками ответа
+//     let result = await response.json(); // читать тело ответа в формате JSON
+
+// fetch('https://vc.ru/', {mode: 'no-cors'})  
+//   .then(function(response) {  
+//     return response.text();  
+//   })  
+//   .then(function(text) {  
+//     console.log('Request successful', text);  
+//   })  
+//   .catch(function(error) {  
+//     console.log('Request failed', error)  
+//   });
+
+fetch('https://vc.ru/', {
+  mode: 'no-cors'
+}).then(function(response) {
+  console.log(response.type); // "opaque"
+});
