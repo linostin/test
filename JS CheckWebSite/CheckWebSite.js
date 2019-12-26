@@ -1,13 +1,52 @@
-// var client = new XMLHttpRequest();
-// client.open("GET", "https://stackoverflow.com/", true);
-// client.overrideMimeType("text/plain; charset=x-user-defined");
 
 
-function getHeaderTime () {
-    alert(this.getResponseHeader("Last-Modified"));  /* A valid GMTString date or null */
+// let xhr = new XMLHttpRequest(); // инициализируем переменную новым объектом XMLHttpRequest
+// xhr.open("GET", "https://learn.javascript.ru/index.html"); // определяем параметры для запроса на определенный адрес
+// xhr.send(); // отправляем запрос на сервер
+
+// xhr.onreadystatechange = function() { // устанавливаем обработчик события
+//   if(xhr.readyState === 2) { // проверяем состояние запроса
+//     const contentType = xhr.getResponseHeader("Content-Type"); // возвращаем строку, содержащую текст указанного заголовка
+//     console.log(contentType); // выводим значение переменной в консоль
+//   }
+// }
+
+
+// let request = new XMLHttpRequest();
+
+// request.onreadystatechange = function() {
+//   if (this.readyState == 4 && this.status == 200) {
+//     console.log(this.readyState);
+//     console.log(this.status);
+//     // console.log(this.responseText)
+//     console.log("SiteWorks");
+//   } else {
+//     console.log("Site not Works");
+//   }
+// };
+
+// request.open("GET", "https://developer.mozilla.org/", true);
+// request.send();
+
+// fetch("https://developer.mozilla.org/").then(function(response) {
+//     return response.json();
+//   }).then(function(data) {
+//     console.log(data);
+//   }).catch(function() {
+//     console.log("Booo");
+//   });
+
+
+// fetch('http://ip-api.com/json')
+//    .then( response => response.json() )
+//    .then( data => console.log(data) )
+
+
+//  let url = "https://jsonplaceholder.typicode.com/";  
+async function fetchAsync (url) {
+    let response = await fetch(url, {mode: "no-cors"});
+    console.log(response)
+    let data = await response.json();
+    console.log(data)
   }
-  
-  var oReq = new XMLHttpRequest();
-  oReq.open("HEAD" /* use HEAD if you only need the headers! */, "https://stackoverflow.com/", true);
-  oReq.onload = getHeaderTime;
-  oReq.send();
+  fetchAsync("https://developer.mozilla.org/")
